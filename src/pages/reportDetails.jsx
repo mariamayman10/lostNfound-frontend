@@ -88,9 +88,12 @@ function ReportDetails() {
               </div>
               <div className="mb-2">
                 <span className="text-sm font-medium text-gray-500">
-                  Found By
+                  {report.type === "lost" ? "Lost By" : "Found By"}
                 </span>
-                <p onClick={() => navigate(`/user/${report.userId}`)}>
+                <p
+                  className="underline text-[#024943]"
+                  onClick={() => navigate(`/users/${report.userId}`)}
+                >
                   {report.userName}
                 </p>
               </div>
