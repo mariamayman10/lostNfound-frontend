@@ -1,4 +1,5 @@
 const baseUrl = import.meta.env.VITE_BACKEND;
+const errObj = { errorMsg: "Something went wrong.Please try again." };
 
 export async function getMyReports(token) {
   try {
@@ -22,3 +23,15 @@ export async function getMyReports(token) {
   }
 }
 
+export async function getUserById(id){
+  try {
+    const res = await fetch(`${baseUrl}/users/${id}`, {
+      method: "GET",
+    })
+    const data = await res.json()
+    return {succ: res.ok, data}
+  } catch (e) {
+    console.error(e);
+    return {succ:false, data:errObj}
+  }
+}

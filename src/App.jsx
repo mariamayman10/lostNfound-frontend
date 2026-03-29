@@ -16,6 +16,7 @@ import NotFound from "./pages/notFound";
 import ProtectedRoute from "./utils/protectedRoute";
 import PublicRoute from "./utils/publicRoute";
 import "./App.css";
+import User from "./pages/user";
 
 function App() {
   useEffect(() => {
@@ -58,6 +59,9 @@ function App() {
               }
             />
             <Route path=":id" element={<ReportDetails />} />
+          </Route>
+          <Route path="users">
+            <Route path=":id" element={<User/>}/>
           </Route>
           <Route path="contact-us" element={<Contact />} />
           <Route path="faq" element={<FAQ />} />
