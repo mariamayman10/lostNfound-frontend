@@ -35,3 +35,17 @@ nav a.active {
   border: 1px solid var(--secondary);
 }
 
+/*  HOME  */
+.home {
+  background-color: var(--bg);
+}
+@media (max-width: 843px) and (min-width: 768px) {
+  .home-wrapper {
+    padding: 0px 35px;
+  }
+}
+@media (max-width: 425px) {
+  .home-wrapper .btns-wrapper {
+    flex-wrap: wrap;
+  }
+}
