@@ -63,3 +63,10 @@ nav a.active {
     flex-wrap: wrap;
   }
 }
+@media (max-width: 420px) {
+  .profile-info {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+}
