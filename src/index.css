@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* Light */
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito/Nunito-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+/* Regular */
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+/* Medium */
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito/Nunito-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+/* Bold */
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/Nunito/Nunito-Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  --primary: #024943;
+  --secondary: #ff9800;
+
+  --btn1-bg: #ff9800;
+  --btn1-txt: #f5f5f5;
+  --btn1-border: #ff9800;
+  --btn1-hover-bg: transparent;
+  --btn1-hover-txt: #ff9800;
+  --btn1-hover-border: #ff9800;
+
+  --btn2-bg: #f5f5f5;
+  --btn2-txt: #024943;
+  --btn2-border: #f5f5f5;
+  --btn2-hover-bg: transparent;
+  --btn2-hover-txt: #f5f5f5;
+  --btn2-hover-border: #f5f5f5;
+
+  --secondary: #ff9800;
+  --bg: #024943;
+  --text-color: #f5f5f5;
+  --danger-color: #f44336;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* {
+  font-family: "Nunito";
+}
+button {
+  outline: none;
+  border-radius: 18px;
+  transition: 0.5s;
+}
+button:hover {
+  transition: 0.5s;
+  cursor: pointer;
+}
+.btn1 {
+  background-color: var(--btn1-bg);
+  color: var(--btn1-txt);
+  border: 1px solid var(--btn1-border);
+}
+.btn1:hover {
+  background-color: var(--btn1-hover-bg);
+  color: var(--btn1-hover-txt);
+  border: 1px solid var(--btn1-hover-border);
+}
+.btn2 {
+  background-color: var(--btn2-bg);
+  color: var(--btn2-txt);
+  border: 1px solid var(--btn2-border);
+}
+.btn2:hover {
+  background-color: var(--btn2-hover-bg);
+  color: var(--btn2-hover-txt);
+  border: 1px solid var(--btn2-border);
+}
+input {
+  outline: none;
+}
+select {
+  outline: none;
+}
