@@ -65,6 +65,16 @@ nav a.active {
   }
 }
 
+@media (max-width: 1040px){
+  .report-details{
+    flex-wrap: wrap;
+  }
+  .report-details .images{
+    width: 100%;
+    
+  }
+}
+
 @media (max-width: 843px) and (min-width: 768px) {
   .home-wrapper {
     padding: 0px 35px;

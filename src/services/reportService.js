@@ -35,3 +35,13 @@ export async function getReports(params) {
     return { succ: false, data: errObj }
   }
 }
+export async function getReportById(id){
+  try {
+    const res = await fetch(`${baseUrl}/reports/${id}`);
+    const data = await res.json();
+    return { succ: res.ok, data };
+  } catch (e) {
+    console.error(e);
+    return { succ: false, data: errObj }
+  }
+}
