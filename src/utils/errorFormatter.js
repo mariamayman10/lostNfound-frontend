@@ -1,0 +1,15 @@
+export function formatError(err){
+  console.log(err)
+  if (!err.errors) return err.errorMsg || "Unknown error";
+  let errMsg = "";
+  for (const key in err.errors) {
+    if (Object.hasOwnProperty.call(err.errors, key)) {
+      const messages = err.errors[key];
+      messages.forEach(msg => {
+        errMsg += `${key}: ${msg}\n`;
+      });
+    }
+  }
+
+  return errMsg.trim();
+}
