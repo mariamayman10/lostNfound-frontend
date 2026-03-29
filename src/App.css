@@ -48,14 +48,31 @@ nav a.active {
 .home {
   background-color: var(--bg);
 }
+
+.reports-container {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 /* GLOBALS */
 .error-msg {
   color: var(--danger-color);
   font-weight: 300;
 }
+
+@media (max-width: 1200px) {
+  .reports-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 843px) and (min-width: 768px) {
   .home-wrapper {
     padding: 0px 35px;
+  }
+}
+@media (max-width: 700px) {
+  .reports-container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 @media (max-width: 425px) {
