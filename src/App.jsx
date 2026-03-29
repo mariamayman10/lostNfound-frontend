@@ -1,4 +1,6 @@
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { getValidIdToken } from "./utils/refreshToken";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./pages/home";
@@ -16,6 +18,9 @@ import PublicRoute from "./utils/publicRoute";
 import "./App.css";
 
 function App() {
+  useEffect(() => {
+    getValidIdToken().catch(console.error);
+  }, []);
 
   return (
     <>
