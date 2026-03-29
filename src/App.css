@@ -35,9 +35,23 @@ nav a.active {
   border: 1px solid var(--secondary);
 }
 
+/* LOGIN & REGISTER */
+.login-container,
+.register-container {
+  background-color: var(--bg);
+}
+.login-register .register-btn {
+  color: var(--btn1-border);
+}
+
 /*  HOME  */
 .home {
   background-color: var(--bg);
+}
+/* GLOBALS */
+.error-msg {
+  color: var(--danger-color);
+  font-weight: 300;
 }
 @media (max-width: 843px) and (min-width: 768px) {
   .home-wrapper {
