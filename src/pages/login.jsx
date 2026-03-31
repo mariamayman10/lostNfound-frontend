@@ -48,7 +48,7 @@ function Login() {
             <p className="text-2xl font-bold mb-6">Login</p>
             <form onSubmit={login}>
               <div className="input-row mb-6">
-                <label for="email" className="block">
+                <label htmlFor="email" className="block">
                   Email
                 </label>
                 <input
@@ -59,7 +59,7 @@ function Login() {
                 />
               </div>
               <div className="input-row">
-                <label for="password" className="block">
+                <label htmlFor="password" className="block">
                   Password
                 </label>
                 <input
@@ -71,7 +71,9 @@ function Login() {
               </div>
               {error && <p className="error-msg">{error}</p>}
               <div className="flex justify-end mt-3">
-                <button className="btn1 px-6 py-2" disabled={isLoading}>{isLoading? "Loading...":"Login"}</button>
+                <button className="btn1 px-6 py-2" disabled={isLoading}>
+                  {isLoading ? "Loading..." : "Login"}
+                </button>
               </div>
             </form>
           </div>
