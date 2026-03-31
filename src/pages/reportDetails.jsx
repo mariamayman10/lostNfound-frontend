@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { getReportById } from "../services/reportService";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 const baseUrl = import.meta.env.VITE_BACKEND;
 
 function ReportDetails() {
   const { id } = useParams();
+  const token = useSelector((store) => store.user.idToken);
   const [error, setError] = useState("");
   const [report, setReport] = useState({});
   const [selectedImg, setSelectedImg] = useState(0);
@@ -12,13 +14,13 @@ function ReportDetails() {
 
   useEffect(() => {
     async function getReport() {
-      const res = await getReportById(id);
+      const res = await getReportById(id, token);
       console.log(res.data);
       if (res.succ) setReport(res.data);
       else setError("Report not found");
     }
     getReport();
-  }, [id]);
+  }, [id, token]);
   return (
     <div className="pt-25 min-h-screen lg:px-20 md:px-15 sm:px-10 px-7">
       {!report.title ? (
@@ -41,6 +43,7 @@ function ReportDetails() {
                   src={`${baseUrl}/reports/report-img/${img.split("/")[3]}`}
                   className="w-20 h-20 rounded-lg shadow-lg shadow-[#a2a2a2]"
                   onClick={() => setSelectedImg(idx)}
+                  key={idx}
                 />
               ))}
             </div>
@@ -113,6 +116,16 @@ function ReportDetails() {
               </div>
             </div>
           </div>
+        </div>
+      )}
+      {report.isOwner && report.status !== "closed" && (
+        <div className="flex justify-end">
+          <button
+            className="btn1 px-4 py-1.5 mb-6"
+            onClick={() => navigate(`/report/${report.id}/update`)}
+          >
+            Update
+          </button>
         </div>
       )}
     </div>

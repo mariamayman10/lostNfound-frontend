@@ -36,9 +36,33 @@ export async function getReports(params) {
   }
 }
 
-export async function getReportById(id){
+export async function getReportById(id, token) {
   try {
-    const res = await fetch(`${baseUrl}/reports/${id}`);
+    const res = await fetch(`${baseUrl}/reports/${id}`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
+    const data = await res.json();
+    return { succ: res.ok, data };
+  } catch (e) {
+    console.error(e);
+    return { succ: false, data: errObj }
+  }
+}
+
+export async function updateReport(id, reportData, token) {
+  console.log(JSON.stringify(reportData))
+  try {
+    const res = await fetch(`${baseUrl}/reports/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(reportData)
+    });
     const data = await res.json();
     return { succ: res.ok, data };
   } catch (e) {
