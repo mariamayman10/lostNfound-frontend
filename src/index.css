@@ -89,6 +89,16 @@ button:hover {
   color: var(--btn2-hover-txt);
   border: 1px solid var(--btn2-border);
 }
+.btn3 {
+  background-color: var(--btn2-bg);
+  color: var(--btn2-txt);
+  border: 1px solid var(--btn2-border);
+}
+.btn3:hover {
+  background-color: var(--btn2-hover-bg);
+  color: var(--btn2-txt);
+  border: 1px solid var(--btn2-txt);
+}
 input {
   outline: none;
 }
