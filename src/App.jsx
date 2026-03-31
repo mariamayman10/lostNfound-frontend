@@ -17,6 +17,7 @@ import ProtectedRoute from "./utils/protectedRoute";
 import PublicRoute from "./utils/publicRoute";
 import "./App.css";
 import User from "./pages/user";
+import UpdateReport from "./pages/updateReport";
 
 function App() {
   useEffect(() => {
@@ -58,10 +59,25 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path=":id" element={<ReportDetails />} />
+            <Route
+              path=":id"
+              element={
+                <ProtectedRoute>
+                  <ReportDetails />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":id/update"
+              element={
+                <ProtectedRoute>
+                  <UpdateReport />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="users">
-            <Route path=":id" element={<User/>}/>
+            <Route path=":id" element={<User />} />
           </Route>
           <Route path="contact-us" element={<Contact />} />
           <Route path="faq" element={<FAQ />} />

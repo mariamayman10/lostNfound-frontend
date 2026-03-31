@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 export default function ProtectedRoute({ children }) {
   const user = useSelector(state => state.user);
   if (!user.idToken) {
+    alert("You need to login first to continue")
     return <Navigate to="/auth/login" replace />;
   }
   return children;
