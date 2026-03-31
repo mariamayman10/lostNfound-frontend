@@ -69,6 +69,10 @@ button:hover {
   transition: 0.5s;
   cursor: pointer;
 }
+button:disabled{
+  background-color: #cdcdcd;
+  color: #575757;
+}
 .btn1 {
   background-color: var(--btn1-bg);
   color: var(--btn1-txt);

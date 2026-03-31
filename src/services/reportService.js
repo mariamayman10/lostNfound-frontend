@@ -45,6 +45,7 @@ export async function getReportById(id, token) {
       }
     });
     const data = await res.json();
+    console.log(data)
     return { succ: res.ok, data };
   } catch (e) {
     console.error(e);
@@ -62,6 +63,25 @@ export async function updateReport(id, reportData, token) {
         "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify(reportData)
+    });
+    const data = await res.json();
+    return { succ: res.ok, data };
+  } catch (e) {
+    console.error(e);
+    return { succ: false, data: errObj }
+  }
+}
+
+export async function commentOnReport(token, comment) {
+  console.log(comment)
+  try {
+    const res = await fetch(`${baseUrl}/comments`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(comment)
     });
     const data = await res.json();
     return { succ: res.ok, data };
