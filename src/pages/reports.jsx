@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { getReports } from "../services/reportService";
-import ReportCard from "../components/reportCard";
 import { useSearchParams } from "react-router-dom";
+import ReportsList from "../components/reportsList";
 
 function Reports() {
   const [params, setParams] = useSearchParams();
@@ -38,7 +38,7 @@ function Reports() {
   return (
     <div className="pt-25 lg:px-20 md:px-15 sm:px-10 px-7 min-h-screen">
       <div className="filters">
-        <form action="">
+        <form>
           <div className="flex justify-between gap-5 flex-wrap">
             <div className="flex flex-wrap gap-3">
               <input
@@ -87,12 +87,13 @@ function Reports() {
         <p className="text-xl font-bold text-center text-gray-400 mt-10">
           Loading Reports...
         </p>
-      ) : reports.length > 0? (
-        <div className="reports-container mt-10 grid justify-items-center gap-5">
-          {reports.length > 0 &&
-            reports.map((r) => <ReportCard report={r} key={r.id} />)}
-        </div>
-      ): <p className="text-xl font-bold text-center text-gray-400 mt-10">No such reports</p>}
+      ) : reports.length > 0 ? (
+        <ReportsList reports={reports} />
+      ) : (
+        <p className="text-xl font-bold text-center text-gray-400 mt-10">
+          No such reports
+        </p>
+      )}
     </div>
   );
 }
