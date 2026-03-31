@@ -15,7 +15,6 @@ function ReportDetails() {
   useEffect(() => {
     async function getReport() {
       const res = await getReportById(id, token);
-      console.log(res.data);
       if (res.succ) setReport(res.data);
       else setError("Report not found");
     }
@@ -94,7 +93,7 @@ function ReportDetails() {
                   {report.type === "lost" ? "Lost By" : "Found By"}
                 </span>
                 <p
-                  className="underline text-[#024943]"
+                  className="underline cursor-pointer text-[#024943]"
                   onClick={() => navigate(`/users/${report.userId}`)}
                 >
                   {report.userName}

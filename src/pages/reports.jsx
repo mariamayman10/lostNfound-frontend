@@ -14,14 +14,12 @@ function Reports() {
   const location = params.get("location") || "";
   const type = params.get("type") || "";
 
-  const updateParam = (key, value) => {
+  function updateParam(key, value) {
     const newParams = new URLSearchParams(params);
-
     if (value) newParams.set(key, value);
     else newParams.delete(key);
-
     setParams(newParams);
-  };
+  }
 
   useEffect(() => {
     async function getFilteredReports() {
