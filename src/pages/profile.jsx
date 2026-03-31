@@ -50,6 +50,9 @@ function Profile() {
           <p className="sm:text-l text-[16px] text-gray-400 font-medium">
             {user.email}
           </p>
+          <p className="sm:text-l text-[16px] text-gray-400 font-medium">
+            Your Posts Count: {user.postsCount}
+          </p>
           <p className="sm:text-l text-[16px] text-gray-400 font-light">
             {user.phoneNumber}
           </p>
