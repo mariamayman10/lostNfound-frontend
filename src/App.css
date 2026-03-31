@@ -3,6 +3,7 @@
 nav {
   background-color: var(--bg);
   color: var(--text-color);
+  z-index: 1000;
 }
 nav a.active {
   text-decoration: underline var(--secondary);
