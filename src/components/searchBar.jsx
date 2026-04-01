@@ -7,6 +7,7 @@ function SearchBar() {
   const navigate = useNavigate();
   function handleSearch() {
     navigate(`/reports?title=${search}`);
+    setSearch("");
   }
   return (
     <div className="flex items-center gap-2 border border-[#fe9a14] rounded-[18px] px-3 py-2 focus-within:border-[#f5f5f5] transition duration-500">
