@@ -26,6 +26,7 @@ export async function getReports(params) {
     if (params.category) query.append("category", params.category);
     if (params.location) query.append("location", params.location);
     if (params.type) query.append("type", params.type);
+    if (params.status) query.append("status", params.status);
 
     const res = await fetch(`${baseUrl}/reports?${query.toString()}`);
     const data = await res.json();
@@ -45,7 +46,6 @@ export async function getReportById(id, token) {
       }
     });
     const data = await res.json();
-    console.log(data)
     return { succ: res.ok, data };
   } catch (e) {
     console.error(e);
@@ -54,7 +54,6 @@ export async function getReportById(id, token) {
 }
 
 export async function updateReport(id, reportData, token) {
-  console.log(JSON.stringify(reportData))
   try {
     const res = await fetch(`${baseUrl}/reports/${id}`, {
       method: "PUT",
@@ -73,7 +72,6 @@ export async function updateReport(id, reportData, token) {
 }
 
 export async function commentOnReport(token, comment) {
-  console.log(comment)
   try {
     const res = await fetch(`${baseUrl}/comments`, {
       method: "POST",

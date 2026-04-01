@@ -44,14 +44,12 @@ function Register() {
     e.preventDefault();
 
     const form = e.target;
-    console.log(form);
     const data = Object.fromEntries(new FormData(form).entries());
     if (data.password !== data.cpassword) {
       setError("Passwords are not matched");
       return;
     }
     const formData = new FormData(form);
-    console.log(formData)
     formData.delete("cpassword");
 
     const res = await registerUser(formData);

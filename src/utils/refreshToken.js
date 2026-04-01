@@ -21,7 +21,6 @@ export async function getValidIdToken() {
   });
 
   const data = await res.json();
-  console.log(data)
   if (!data.id_token) throw new Error("Failed to refresh token");
 
   // Update user info locally

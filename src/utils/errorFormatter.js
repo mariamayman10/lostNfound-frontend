@@ -1,5 +1,4 @@
 export function formatError(err){
-  console.log(err)
   if (!err.errors) return err.errorMsg || "Unknown error";
   let errMsg = "";
   for (const key in err.errors) {
