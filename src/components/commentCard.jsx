@@ -1,3 +1,5 @@
+import ReplyCard from "./replyCard";
+
 function CommentCard({
   comment,
   onReply,
@@ -53,18 +55,7 @@ function CommentCard({
       {comment.replies?.length > 0 && (
         <div className="mt-3 ml-6 border-l pl-4 space-y-3">
           {comment.replies.map((reply) => (
-            <div key={reply.id} className="bg-white p-3 rounded-lg border">
-              <div className="flex justify-between text-sm">
-                <span className="font-medium text-[#08350f]">
-                  {reply.userName}
-                </span>
-                <span className="text-xs text-gray-400">
-                  {new Date(reply.createdAt).toLocaleString()}
-                </span>
-              </div>
-
-              <p className="text-gray-700 mt-1">{reply.content}</p>
-            </div>
+            <ReplyCard key={reply.id} reply={reply}/>
           ))}
         </div>
       )}
