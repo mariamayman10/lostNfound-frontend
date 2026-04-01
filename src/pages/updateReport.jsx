@@ -23,21 +23,23 @@ function UpdateReport() {
   useEffect(() => {
     async function getReport() {
       const res = await getReportById(id, token);
-      console.log(res.data);
       if (res.succ) {
+        if (!res.data.isOwner) {
+          navigate(`/report/${id}`, { replace: true });
+          return;
+        }
         setReport(res.data);
         setOriginalStatus(res.data.status);
       } else setError("Report not found");
     }
     getReport();
-  }, [id, token]);
+  }, [id, token, navigate]);
 
   async function handleUpdate(e) {
     setIsLoading(true);
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    console.log(data)
     const res = await updateReport(id, data, token);
     setIsLoading(false);
     if (res.succ) {
