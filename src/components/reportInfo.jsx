@@ -48,7 +48,11 @@ function ReportInfo({ report }) {
                     : "bg-gray-500/20 text-gray-500"
               }`}
             >
-              {report.status}
+              {report.status === "open"
+                ? "Open"
+                : report.status === "claimed"
+                  ? "Claimed"
+                  : "Closed"}
             </span>
           </div>
         </div>

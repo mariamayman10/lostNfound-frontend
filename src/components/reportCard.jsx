@@ -25,7 +25,7 @@ function ReportCard({ report }) {
                 : "bg-green-500/20 text-green-400"
             }`}
           >
-            {report.type}
+            {report.type === 'found'? "Found": "Lost"}
           </span>
         </div>
         <div className="text-sm text-gray-400 flex justify-between">

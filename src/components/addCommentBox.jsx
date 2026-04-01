@@ -26,6 +26,7 @@ function AddCommentBox({ id, token, setComments }) {
     } else setError("Failed to save the comment, try again...");
     setPosting(false);
   }
+  
   return (
     <div className="bg-white p-4 rounded-xl shadow border border-[#024943]">
       {error && <p className="error-msg">{error}</p>}
