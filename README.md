@@ -67,19 +67,6 @@ This repository contains the frontend implementation built using React, Redux, a
 
 ---
 
-## Project Structure
-  src/
-  │── components/
-  │── pages/
-  │── services/
-  │── store/
-  │── utils/
-  │── App.jsx
-  │── main.jsx
-
-
----
-
 ## Installation and Setup
 
 ```bash
