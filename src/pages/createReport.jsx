@@ -47,7 +47,7 @@ function CreateReport() {
   }
 
   return (
-    <div className="create-report-container min-h-screen flex flex-col justify-center lg:px-30 md:px-20 sm:px-15 px-9 md:pt-0 pt-25">
+    <div className="create-report-container min-h-screen flex flex-col justify-center lg:px-30 md:px-20 sm:px-15 px-9 pt-25">
       <p className="text-3xl font-bold mb-4 text-[#fe9a14]">Create Report</p>
       <form onSubmit={handleCreation}>
         {inputConfig.map((row, rowIdx) => (
