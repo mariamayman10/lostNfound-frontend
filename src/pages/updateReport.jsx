@@ -30,7 +30,7 @@ function UpdateReport() {
         }
         setReport(res.data);
         setOriginalStatus(res.data.status);
-      } else setError("Report not found");
+      } else setError(formatError(res.data));
     }
     getReport();
   }, [id, token, navigate]);
@@ -54,14 +54,14 @@ function UpdateReport() {
         {inputConfig.map((ipt, iptIdx) => {
           if (ipt.label == "status") {
             return (
-              <div className="relative w-fit">
+              <div className="relative w-fit" key={iptIdx}>
                 <label htmlFor={ipt.label} className="block">
                   {ipt.labelTxt}
                 </label>
                 <select
                   name={ipt.label}
                   className="cursor-pointer w-50 border border-[#fe9a14] rounded-3xl px-4 py-2 appearance-none transition duration-200"
-                  value={report[ipt.label]}
+                  value={report[ipt.label]||""}
                   onChange={(e) =>
                     setReport((prev) => ({
                       ...prev,
@@ -90,7 +90,7 @@ function UpdateReport() {
                   name={ipt.label}
                   type={ipt.type}
                   className="mt-2 px-4 py-2 rounded-2xl w-full border border-[#ff9800]"
-                  value={report[ipt.label]}
+                  value={report[ipt.label] || ""}
                   onChange={(e) =>
                     setReport((prev) => ({
                       ...prev,
