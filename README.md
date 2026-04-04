@@ -89,4 +89,4 @@ VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
   - Automatic token refresh ensures session continuity
 
 ## Related Repository
-Backend: [<backend-repository-url>](https://github.com/mariamayman10/lostNfound-backend)
+Backend: https://github.com/mariamayman10/lostNfound-backend
