@@ -41,8 +41,24 @@ This repository contains the frontend implementation built using React, Redux, a
 - View reports created by the user
 
 ---
+## Screenshots
+### Home Page
+<img src="./screenshots/home.png" width="600"/>
 
+### Login Page
+<img src="./screenshots/register.png" width="600"/>
+
+### Reports Page
+<img src="./screenshots/reports.png" width="600"/>
+
+### Create Report Page
+<img src="./screenshots/create" width="600"/>
+
+### Report Details
+<img src="./screenshots/reportdetails.png" width="600"/>
 ## Tech Stack
+
+---
 
 - React
 - Redux
