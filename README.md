@@ -1,18 +1,92 @@
-# React + Vite
+# LostNFound Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+LostNFound is a full-stack web application designed to streamline the process of reporting, searching, and recovering lost or found items.
 
-Currently, two official plugins are available:
+This repository contains the frontend implementation built using React, Redux, and Tailwind CSS. It provides a responsive and user-friendly interface while integrating with a secure backend API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### Authentication
+- User registration and login
+- Email verification
+- Persistent sessions using local storage
+- Token refresh mechanism for uninterrupted sessions
 
-Note: This will impact Vite dev & build performances.
+### Routing and Access Control
+- Public and protected routes
+- Unauthorized users are redirected to the login page
+- Route protection based on authentication state
 
-## Expanding the ESLint configuration
+### Report Management
+- Create lost and found reports
+- Update reports (restricted to report owner)
+- View reports list
+- View detailed report information
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Search and Filtering
+- Search by title, category, or location
+- Filter by type (Lost / Found)
+- Filter by report status (Open / Claimed / Closed)
+
+### Comments and Replies
+- Add comments to reports
+- Reply to comments (nested structure)
+- Dynamic UI updates without page reload
+
+### User Profile
+- Display user information
+- View reports created by the user
+
+---
+
+## Tech Stack
+
+- React
+- Redux
+- React Router DOM
+- Tailwind CSS
+- Firebase Authentication
+
+---
+
+## Project Structure
+  src/
+  │── components/
+  │── pages/
+  │── services/
+  │── store/
+  │── utils/
+  │── App.jsx
+  │── main.jsx
+
+
+---
+
+## Installation and Setup
+
+```bash
+git clone https://github.com/mariamayman10/lostNfound-frontend
+cd frontend
+npm install
+npm run dev
+```
+---
+## Environment Variables
+Create a .env file in the root directory:
+```bash
+VITE_BACKEND_URL=your_backend_url
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+```
+
+## Security and State Management
+  - Authentication state is managed using Redux
+  - Tokens are stored in local storage
+  - Protected routes enforce access control
+  - Automatic token refresh ensures session continuity
+
+## Related Repository
+Backend: [<backend-repository-url>](https://github.com/mariamayman10/lostNfound-backend)
