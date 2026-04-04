@@ -52,13 +52,12 @@ This repository contains the frontend implementation built using React, Redux, a
 <img src="./screenshots/reports.png" width="600"/>
 
 ### Create Report Page
-<img src="./screenshots/create" width="600"/>
+<img src="./screenshots/create.png" width="600"/>
 
 ### Report Details
 <img src="./screenshots/reportdetails.png" width="600"/>
-## Tech Stack
 
----
+## Tech Stack
 
 - React
 - Redux
