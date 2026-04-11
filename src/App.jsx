@@ -18,6 +18,7 @@ import PublicRoute from "./utils/publicRoute";
 import "./App.css";
 import User from "./pages/user";
 import UpdateReport from "./pages/updateReport";
+import ScrollToTop from "./utils/scroll";
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
+          <ScrollToTop />
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="home" element={<Home />} />
