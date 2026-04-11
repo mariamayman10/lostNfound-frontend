@@ -27,6 +27,7 @@ export async function getReports(params) {
     if (params.location) query.append("location", params.location);
     if (params.type) query.append("type", params.type);
     if (params.status) query.append("status", params.status);
+    if (params.sortBy) query.append("sortby", params.sortBy);
 
     const res = await fetch(`${baseUrl}/reports?${query.toString()}`);
     const data = await res.json();

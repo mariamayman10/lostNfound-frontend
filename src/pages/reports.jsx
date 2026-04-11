@@ -13,6 +13,7 @@ function Reports() {
   const category = params.get("category") || "";
   const location = params.get("location") || "";
   const type = params.get("type") || "";
+  const sortBy = params.get("sortby") || "";
   const status = params.get("status") || "";
 
   function updateParam(key, value) {
@@ -26,13 +27,13 @@ function Reports() {
     async function getFilteredReports() {
       setIsLoading(true);
       setError("");
-      let res = await getReports({ title, category, location, type, status });
+      let res = await getReports({ title, category, location, type, status, sortBy });
       if (res.succ) setReports(res.data);
       else setError("Something happened while fetching, try again...");
       setIsLoading(false);
     }
     getFilteredReports();
-  }, [title, category, location, type, status]);
+  }, [title, category, location, type, status, sortBy]);
 
   return (
     <div className="pt-25 lg:px-20 md:px-15 sm:px-10 px-7 min-h-screen">
@@ -91,6 +92,22 @@ function Reports() {
                   <option value="open">Open</option>
                   <option value="claimed">Claimed</option>
                   <option value="closed">Closed</option>
+                </select>
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <MdOutlineKeyboardArrowDown />
+                </span>
+              </div>
+              <div className="relative w-fit">
+                <select
+                  value={sortBy}
+                  onChange={(e) => updateParam("sortby", e.target.value)}
+                  className="cursor-pointer w-35 border border-[#024943] focus:border-[#fe9a14] rounded-3xl px-4 py-2 appearance-none transition duration-200"
+                >
+                  <option value="" defaultChecked>
+                    Sort By
+                  </option>
+                  <option value="desc">Newest</option>
+                  <option value="asc">Oldest</option>
                 </select>
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
                   <MdOutlineKeyboardArrowDown />
