@@ -14,7 +14,7 @@ function Contact() {
         <div className="text-lg">
           <div className="flex justify-center items-center gap-3 font-semibold mb-4">
             <FaPhone />
-            +966 11 111 1111
+            +44 1111 111111
           </div>
           <div className="flex justify-center items-center gap-3 font-semibold">
             <MdEmail />
