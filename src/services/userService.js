@@ -13,11 +13,16 @@ export async function getMyReports(token) {
     const lostReports = [];
     const foundReports = [];
 
+    let resolvedReports = 0;
+    for (const r of reports)
+      if(r.status == 'closed')
+        resolvedReports++;
+
     for (const r of reports) {
       if (r.type === "lost") lostReports.push(r);
       else if (r.type === "found") foundReports.push(r);
     }
-    return { lostReports, foundReports };
+    return { lostReports, foundReports, resolvedReports };
   } catch (e) {
     console.error(e);
   }

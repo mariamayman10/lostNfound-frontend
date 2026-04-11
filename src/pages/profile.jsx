@@ -13,6 +13,7 @@ function Profile() {
   const navigate = useNavigate();
   const [lostReports, setLostReports] = useState([]);
   const [foundReports, setFoundReports] = useState([]);
+  const [resolvedReportsCnt, setResolvedReportsCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedReports, setSelectedReports] = useState("lost");
 
@@ -25,9 +26,10 @@ function Profile() {
   useEffect(() => {
     async function fetchReports() {
       setIsLoading(true);
-      const reports = await getMyReports(user.idToken);
-      setLostReports(reports.lostReports);
-      setFoundReports(reports.foundReports);
+      const response = await getMyReports(user.idToken);
+      setLostReports(response.lostReports);
+      setFoundReports(response.foundReports);
+      setResolvedReportsCount(response.resolvedReports);
       setIsLoading(false);
     }
     fetchReports();
@@ -52,6 +54,9 @@ function Profile() {
           </p>
           <p className="sm:text-l text-[16px] text-gray-400 font-medium">
             Your Posts Count: {user.postsCount}
+          </p>
+          <p className="sm:text-l text-[16px] text-gray-400 font-medium">
+            Your Resolved Posts Count: {resolvedReportsCnt}
           </p>
           <p className="sm:text-l text-[16px] text-gray-400 font-light">
             {user.phoneNumber}
