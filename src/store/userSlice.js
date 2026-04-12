@@ -4,6 +4,7 @@ const initialState = {
   idToken: "",
   refreshToken: "",
   expiresIn: "",
+  userId: "",
   name: "",
   email: "",
   phoneNumber: "",
