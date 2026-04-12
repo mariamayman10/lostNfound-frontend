@@ -5,22 +5,27 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "./logo";
 import Btn from "./btn";
+import Notifications from "./notifications";
 
 function MobileNav({ className = "" }) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const user = useSelector((state) => state.user.idToken);
+  const user = useSelector((store) => store.user.userId);
 
   return (
     <nav className={`mobile-nav fixed z-50 w-full ${className}`}>
-      <div className="overflow-hidden rounded-bl-[18px] rounded-br-[18px] bg-[#024943]">
+      <div className="rounded-bl-[18px] rounded-br-[18px] bg-[#024943]">
         <div className="h-16 px-4 flex justify-between items-center">
           <Logo />
           <div className="flex items-center">
             {user && (
-              <button onClick={() => navigate("profile")} className="mr-2">
-                <FaRegUserCircle size={20} />
-              </button>
+              <>
+                <Notifications user={user} />
+                <button onClick={() => navigate("profile")} className="mr-2">
+                  <FaRegUserCircle size={20} />
+                </button>
+
+              </>
             )}
             <button onClick={() => setOpen(!open)} className="text-2xl">
               <HiBars3 />

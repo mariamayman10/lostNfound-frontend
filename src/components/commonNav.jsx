@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
+import { IoNotifications } from "react-icons/io5";
 import Btn from "./btn";
+import Notifications from "./notifications";
 
 export function NavLinks() {
   return (
@@ -21,14 +23,17 @@ export function NavLinks() {
 
 export function LoginProfile() {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user.idToken);
+  const user = useSelector((state) => state.user.userId);
 
   return (
     <>
       {user ? (
-        <button onClick={() => navigate("profile")}>
-          <FaRegUserCircle size={20} />
-        </button>
+        <div className="flex items-center">
+          <Notifications user={user} />
+          <button onClick={() => navigate("profile")}>
+            <FaRegUserCircle size={20} />
+          </button>
+        </div>
       ) : (
         <Btn onClick={() => navigate("auth/login")} classN="btn1">
           Login
