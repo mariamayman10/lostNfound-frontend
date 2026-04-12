@@ -43,7 +43,6 @@ function CreateReport() {
     if (res.succ) {
       navigate("/reports", { replace: true });
     } else setError(formatError(res.data));
-
   }
 
   return (

@@ -61,7 +61,7 @@ function UpdateReport() {
                 <select
                   name={ipt.label}
                   className="cursor-pointer w-50 border border-[#fe9a14] rounded-3xl px-4 py-2 appearance-none transition duration-200"
-                  value={report[ipt.label]||""}
+                  value={report[ipt.label] || ""}
                   onChange={(e) =>
                     setReport((prev) => ({
                       ...prev,

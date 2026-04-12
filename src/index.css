@@ -62,6 +62,7 @@ body {
 }
 button {
   outline: none;
+  border: none;
   border-radius: 18px;
   transition: 0.5s;
 }

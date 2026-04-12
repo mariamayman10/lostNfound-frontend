@@ -63,15 +63,15 @@ function Profile() {
           </p>
         </div>
       </div>
-      <div className="mb-4">
+      <div className="mb-4 bg-amber-50 w-fit rounded-3xl p-1">
         <button
-          className={`${selectedReports === "lost" ? "btn1" : "btn3"} px-5 py-1.5 mr-5`}
+          className={`${selectedReports === "lost" && "btn1"} px-5 py-1.5`}
           onClick={() => setSelectedReports("lost")}
         >
           Lost Reports
         </button>
         <button
-          className={`${selectedReports === "found" ? "btn1" : "btn3"} px-5 py-1.5`}
+          className={`${selectedReports === "found" && "btn1"} px-5 py-1.5`}
           onClick={() => {
             setSelectedReports("found");
           }}
