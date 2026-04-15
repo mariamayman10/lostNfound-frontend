@@ -19,6 +19,7 @@ import "./App.css";
 import User from "./pages/user";
 import UpdateReport from "./pages/updateReport";
 import ScrollToTop from "./utils/scroll";
+import Feedbacks from "./pages/feedbacks";
 
 function App() {
   useEffect(() => {
@@ -29,10 +30,11 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
-          <ScrollToTop />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="home" element={<Home />} />
+          <Route path="feedbacks" element={<Feedbacks />} />
           <Route path="auth">
             <Route
               path="login"

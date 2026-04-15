@@ -20,10 +20,10 @@ export async function createFeedback(feedback, token) {
   }
 }
 
-export async function getFeedbacks() {
+export async function getFeedbacks(limit) {
   try {
-    const res = await fetch(`${baseUrl}/feedback`, {
-      method: "GET",
+    const res = await fetch(`${baseUrl}/feedback?limit=${limit}`, {
+      method: "GET"
     });
     const data = await res.json();
     return { succ: res.ok, data };
