@@ -82,7 +82,7 @@ function Reports() {
               </div>
               <div className="relative w-fit">
                 <select
-                  value={type}
+                  value={status}
                   onChange={(e) => updateParam("status", e.target.value)}
                   className="cursor-pointer w-35 border border-[#024943] focus:border-[#fe9a14] rounded-3xl px-4 py-2 appearance-none transition duration-200"
                 >
