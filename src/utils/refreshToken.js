@@ -1,10 +1,10 @@
 export async function getValidIdToken() {
   const userStr = localStorage.getItem("user");
-  if (!userStr) throw new Error("User not logged in");
+  if (!userStr) return;
 
   const user = JSON.parse(userStr);
 
-  if (!user.idToken) throw new Error("User not logged in");
+  if (!user.idToken) return;
 
   if (Date.now() < user.expiresIn) {
     return user.idToken;
