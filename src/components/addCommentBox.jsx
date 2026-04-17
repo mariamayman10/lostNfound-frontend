@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { commentOnReport } from "../services/reportService";
+import { formatError } from "../utils/errorFormatter";
 
 function AddCommentBox({ id, token, setComments }) {
   const [comment, setComment] = useState("");
@@ -20,10 +21,11 @@ function AddCommentBox({ id, token, setComments }) {
       reportId: id,
     };
     const res = await commentOnReport(token, commentObj);
+    console.log(res.data)
     if (res.succ) {
       setComment("");
       setComments((prev) => [...prev, res.data]);
-    } else setError("Failed to save the comment, try again...");
+    } else setError(formatError(res.data));
     setPosting(false);
   }
   

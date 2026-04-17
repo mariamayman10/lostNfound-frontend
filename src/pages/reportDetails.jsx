@@ -6,6 +6,7 @@ import { groupComments } from "../utils/commentsGrouper";
 import CommentCard from "../components/commentCard";
 import AddCommentBox from "../components/addCommentBox";
 import ReportInfo from "../components/reportInfo";
+import { formatError } from "../utils/errorFormatter";
 
 function ReportDetails() {
   const token = useSelector((store) => store.user.idToken);
@@ -42,7 +43,7 @@ function ReportDetails() {
       });
       setReplyText("");
       setReplyToId(null);
-    } else setError("Failed to save the reply, try again...");
+    } else setError(formatError(res.data));
     setPosting(false);
   }
 

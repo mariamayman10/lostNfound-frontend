@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { createFeedback } from "../services/feedbackService";
 import { FaStar } from "react-icons/fa";
+import { formatError } from "../utils/errorFormatter";
 
 
 function FeedbackForm() {
@@ -39,7 +40,7 @@ function FeedbackForm() {
       setRating(0);
       setError("");
     } else {
-      setError("Something went wrong");
+      setError(formatError(res.data));
     }
   }
 
