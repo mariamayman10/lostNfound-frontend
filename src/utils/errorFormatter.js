@@ -5,7 +5,7 @@ export function formatError(err){
     if (Object.hasOwnProperty.call(err.errors, key)) {
       const messages = err.errors[key];
       messages.forEach(msg => {
-        errMsg += `${key}: ${msg}\n`;
+        errMsg += `ValidationError: ${msg}\n`;
       });
     }
   }

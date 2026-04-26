@@ -40,20 +40,43 @@ function Register() {
   const navigate = useNavigate();
 
   async function register(e) {
-    setIsLoading(true);
     e.preventDefault();
+    setIsLoading(true);
 
     const form = e.target;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const formData = new FormData(form);
+
+    for (let [key, value] of formData.entries()) {
+      if (typeof value === "string") {
+        let cleaned = value.trim();
+
+        if (key === "phoneNumber") {
+          cleaned = cleaned.replace(/[^\d+]/g, "");
+        }
+        if (key === "name" && cleaned.trim() === "") {
+          setError("Please enter your name");
+          setIsLoading(false);
+          return;
+        }
+
+        formData.set(key, cleaned);
+      }
+    }
+
+    const data = Object.fromEntries(formData.entries());
+
     if (data.password !== data.cpassword) {
       setError("Passwords are not matched");
+      setIsLoading(false);
       return;
     }
-    const formData = new FormData(form);
+
     formData.delete("cpassword");
 
     const res = await registerUser(formData);
     setIsLoading(false);
+    console.log(res.data)
+
     if (res.succ) navigate("/home", { replace: true });
     else setError(formatError(res.data));
   }
@@ -83,7 +106,10 @@ function Register() {
                         onChange={ipt.onChange ? () => setError("") : () => {}}
                       />
                     ) : (
-                      <div className="input-row px-[2.5px] w-full sm:w-1/2 mb-4 sm:mb-0">
+                      <div
+                        key={iptIdx}
+                        className="input-row px-[2.5px] w-full sm:w-1/2 mb-4 sm:mb-0"
+                      >
                         <label htmlFor="photo" className="block">
                           Profile Picture
                         </label>
